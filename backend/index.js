@@ -7,6 +7,9 @@ dotenv.config();
 
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 
+// Debug: log the FRONTEND_URL value
+console.log('FRONTEND_URL:', FRONTEND_URL);
+
 const app = express();
 
 app.use(cors({
