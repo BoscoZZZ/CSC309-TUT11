@@ -5,7 +5,12 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
+let FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
+
+// Fix: Remove 'FRONTEND_URL=' prefix if present (Railway sometimes adds it)
+if (FRONTEND_URL.startsWith('FRONTEND_URL=')) {
+    FRONTEND_URL = FRONTEND_URL.replace(/^FRONTEND_URL=/, '');
+}
 
 // Debug: log the FRONTEND_URL value
 console.log('FRONTEND_URL:', FRONTEND_URL);
